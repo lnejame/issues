@@ -1,0 +1,16 @@
+<h1>Sign Up</h1>
+
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :username %>
+    <%= f.input :email %>
+    <%= f.password :password %>
+    <%= f.password :password_confirmation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, label: "Register" %>
+  </div>
+<% end %>

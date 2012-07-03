@@ -1,0 +1,18 @@
+// Set the correct sprite paths
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+
+
+$navbarText: #eee;
+$navbarLinkColor: #eee;
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootstrap-responsive";
+
+.navbar .brand {
+  color: #00AEEF;
+}

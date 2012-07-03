@@ -1,0 +1,14 @@
+<%= simple_form_for(@issue) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :issue_id %>
+    <%= f.input :subject %>
+    <%= f.association :category %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
