@@ -12,40 +12,46 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body>
+  <body class="<%= params[:controller] %>">
     <header class="navbar navbar-fixed-top">
-    	<a class="brand" href="pages/home">
+    	<a class="brand" href="home">
 		  Project name
 		</a>
 		<nav class="navbar-inner">
          <div class="nav-collapse">
         <ul class="nav">
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "#" %></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Issues", issues_path %></li>
         </ul>
         <form class="navbar-search pull-left">
 		  <input type="text" class="search-query" placeholder="Search">
 		</form>
 		<ul class="nav pull-right">
-              <li class="dropdown">
-                <a href="#"
-                      class="dropdown-toggle"
-                      data-toggle="dropdown">
-                      Menu
-                      <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="pages/home">Home</a></li>
-                    <li><a href="pages/about">About</a></li>
-                    <li class="divider"></li>
-                    <li><a href="issues">Issues</a></li>
-                    <li><a href="#">Link</a></li>
-                </ul>
-              </li>
-            </ul>
+		 <div id="container">
+		    <div class="user_nav">
+		      <% if current_user %>
+		        Logged in as <%= current_user.username %>
+		        <%= link_to "Log out", logout_path, class: "btn" %>
+		      <% else %>
+		        <%= link_to "Sign up", signup_path, class: "btn" %> or
+		        <%= link_to "Log in", login_path, class: "btn"  %>
+		      <% end %>
+		    </div>
+		    <% flash.each do |name, msg| %>
+		      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+		    <% end %>
+		  </div>
+		</ul>
       </div>
       </nav>
     </header>
+    <div class="span10 offset1">
+    	<% flash.each do |key, value| %>
+					<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		<% end %>			
+    </div>
+	    
     <div id="main" role="main">
       <div class="container">
         <div class="content">
@@ -55,7 +61,7 @@
             
               
               <div class="span3">
-		    	 <h2>About Us</h2>
+		    	 <h2>Placeholder</h2>
 		     	 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>        
 		  	  
             	</div>

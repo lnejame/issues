@@ -1,13 +1,13 @@
 <h1>Sign Up</h1>
-
+<br>
+<br/>
 <%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :username %>
     <%= f.input :email %>
-    <%= f.password :password %>
-    <%= f.password :password_confirmation %>
+    <%= f.input :password %>
   </div>
 
   <div class="form-actions">

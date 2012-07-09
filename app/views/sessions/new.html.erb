@@ -6,10 +6,6 @@
     <%= text_field_tag :username, params[:username] %>
   </div>
   <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
@@ -19,3 +15,6 @@
   </div>
   <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
+
+<h2>Forgot Password?</h2>
+<%= render 'forgot_password_form' %>

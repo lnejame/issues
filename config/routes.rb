@@ -1,17 +1,35 @@
 Issues::Application.routes.draw do
-  get "users/new"
+  get "user_sessions/new"
 
-  get "sessions/new"
+  get "user_sessions/create"
 
-  get "pages/home"
+  get "user_sessions/destroy"
 
-  get "pages/about"
+  get "password_resets/create"
 
-  get "pages/help"
+  get "password_resets/edit"
+
+  get "password_resets/update"
+
+  get "logout" => "user_sessions#destroy", :as => "logout"
+  get "login" => "user_sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :users
+  resources :sessions
+  resources :user_sessions
+  get "secret" => "home#secret", :as => "secret"
+
+  get "pages/home", :as => "home"
+
+  get "pages/about", :as => "about"
+
+  get "pages/help", :as => "help"
 
   resources :issues
 
   resources :categories
+  
+  resources :password_resets
   
   root to: 'pages#home'
 

@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  before_filter :require_login
   # GET /issues
   # GET /issues.json
   def index

@@ -1,0 +1,21 @@
+<form class="form-inline">
+<%= form_tag user_sessions_path, :method => :post do %>
+  
+  <div class="field-inputs">
+    <%= label_tag :username %><br />
+    <%= text_field_tag :username %>
+  </div>
+  <div class="field-inputs">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="field">
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    <%= label_tag :remember_me %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+</form>

@@ -28,6 +28,9 @@
       display: block;
       margin-left: $indent;
     }
+    &.text { 
+      display: block;
+      size: 40px}
     &.radio { margin-right: 10px; }
   }
   div.input { margin-bottom: 10px;}
